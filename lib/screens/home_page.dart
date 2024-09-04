@@ -6,7 +6,9 @@ import 'package:quotesapp/screens/Model/quotes_model.dart';
 import 'package:quotesapp/screens/component/GrideViewMethod.dart';
 import 'package:quotesapp/utils/global.dart';
 
+import 'component/fillScreenDialogue_Page.dart';
 import 'component/listViewMethod.dart';
+import 'component/resetDialogue_Page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -61,46 +63,12 @@ class _HomePageState extends State<HomePage> {
                 onPressed: () {
                   showDialog(
                     context: context,
-                    builder: (context) => AlertDialog(
-                      icon: Icon(Icons.refresh),
-                      title: const Center(
-                        child: Text(
-                          'Reset Settings?',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                      content: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          const Divider(
-                            thickness: 2,
-                          ),
-                          const Text(
-                            'This will reset your app Prefrence back\nTo their default setting. The following\naccounts will also be signed out: ',
-                            style: TextStyle(fontSize: 12),
-                          ),
-                          const Divider(
-                            thickness: 2,
-                          ),
-                          emialAddress(mail: 'jenelia123@gmail.com'),
-                          emialAddress(mail: 'admin345@gmail.com'),
-                          emialAddress(mail: 'smith675@gmail.com'),
-                          const Divider(thickness: 2,),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                             TextButton(onPressed: () {
-
-                             }, child: Text('Cancle')),
-                              TextButton(onPressed: () {
-
-                              }, child: Text('Accept'))
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                    builder: (context) => resetDialoguePage(
+                        title: 'Reset Settings?',
+                        text: contentText,
+                        isImage: true,
+                        isDivider: true,
+                        isIcon: true),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -113,7 +81,17 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.black, fontWeight: FontWeight.bold),
                 )),
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => resetDialoguePage(
+                        title: 'Dialogue with hero icon',
+                        text: contentText2,
+                        isImage: false,
+                        isDivider: false,
+                        isIcon: false),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
@@ -124,7 +102,43 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.black, fontWeight: FontWeight.bold),
                 )),
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => Material(
+                            child: Container(
+                              color: Colors.white,
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    children: [
+                                      const Padding(
+                                        padding: EdgeInsets.all(8.0),
+                                        child: Icon(Icons.close),
+                                      ),
+                                      const Text(
+                                        "Full-screen dialog title",
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      Spacer(),
+                                      TextButton(
+                                          onPressed: () {}, child: Text('Save'))
+                                    ],
+                                  ),
+                                  SizedBox(height: 10,),
+                                  FullScreenDialog(lebal: 'Lebal',hint: 'Input'),
+                                  FullScreenDialog(lebal:'Event Name',hint: 'Event Name'),
+                                ],
+                              ),
+                            ),
+                          ));
+                },
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
@@ -140,23 +154,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget emialAddress({required String mail }) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 5),
-      child: Row(
-        children: [
-          CircleAvatar(
-            radius: 25,
-            backgroundColor: Colors.green,
-            backgroundImage: NetworkImage(img1),
-          ),
 
-          Padding(
-            padding: const EdgeInsets.only(left:10),
-            child: Text(mail),
-          )
-        ],
-      ),
-    );
-  }
 }
