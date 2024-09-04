@@ -102,57 +102,135 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.black, fontWeight: FontWeight.bold),
                 )),
             ElevatedButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) => Material(
-                            child: Container(
-                              color: Colors.white,
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Row(
-                                    children: [
-                                      const Padding(
-                                        padding: EdgeInsets.all(8.0),
-                                        child: Icon(Icons.close),
-                                      ),
-                                      const Text(
-                                        "Full-screen dialog title",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      Spacer(),
-                                      TextButton(
-                                          onPressed: () {}, child: Text('Save'))
-                                    ],
-                                  ),
-                                  SizedBox(height: 10,),
-                                  FullScreenDialog(lebal: 'Lebal',hint: 'Input'),
-                                  FullScreenDialog(lebal:'Event Name',hint: 'Event Name'),
-                                ],
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => Material(
+                    child: Container(
+                      color: Colors.white,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(Icons.close),
                               ),
+                              const Text(
+                                "Full-screen dialog title",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                              Spacer(),
+                              TextButton(onPressed: () {}, child: Text('Save'))
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          FullScreenDialog(lebal: 'Lebal', hint: 'Input'),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          FullScreenDialog(
+                              lebal: 'Event Name', hint: 'Event Name'),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: Text(
+                              'From',
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 15),
                             ),
-                          ));
-                },
-                style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    backgroundColor: Colors.green.shade300),
-                child: const Text(
-                  'Full Screen',
-                  style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
-                )),
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                  child: FullScreenDialog(
+                                      lebal: 'Lebal', hint: 'Input')),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Expanded(
+                                  child: FullScreenDialog(
+                                      lebal: 'Lebal', hint: 'Input')),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: Text(
+                              'To',
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 15),
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                  child: FullScreenDialog(
+                                      lebal: 'Lebal', hint: 'Input')),
+                              const SizedBox(
+                                width: 5,
+                              ),
+                              Expanded(
+                                  child: FullScreenDialog(
+                                      lebal: 'Lebal', hint: 'Input')),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Checkbox(
+                                  value: false,
+                                  onChanged: (value) {},
+                                ),
+                              ),
+                              const Text('All day'),
+                            ],
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15),
+                            child: Text(
+                              'Timezone',
+                              style: TextStyle(color: Colors.grey, fontSize: 15),
+                            ),
+                          ),
+                          FullScreenDialog(lebal: 'Label', hint: 'Input')
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  backgroundColor: Colors.green.shade300),
+              child: const Text(
+                'Full Screen',
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
-
-
 }

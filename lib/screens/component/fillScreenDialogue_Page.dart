@@ -9,10 +9,10 @@ Padding FullScreenDialog({required String lebal,required String hint}) {
         hintText: hint,
         suffixIcon: Icon(Icons.arrow_drop_down),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(5),
         ),
       ),
     ),
