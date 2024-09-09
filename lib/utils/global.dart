@@ -1,3 +1,6 @@
+import 'package:quotesapp/screens/Model/quotes_list.dart';
+import 'package:quotesapp/screens/Model/quotes_model.dart';
+
 List  QuosteView=[];
 
 bool isGrid=false;
@@ -8,4 +11,6 @@ String img3='https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-
 
 String contentText='This will reset your app Prefrence back To their default setting. The following accounts will also be signed out: ';
 String contentText2='A dialogue is a type of modal window that appears in front of app content to provide citical information ,or ask for dicision';
+
+Quotes? quote;
 

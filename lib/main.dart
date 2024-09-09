@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quotesapp/screens/EditingPage.dart';
 import 'package:quotesapp/screens/home_page.dart';
 
 void main() {
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/':(context)=> const HomePage(),
+        '/editingpage':(context)=> const EditingPage(),
       },
     );
     }

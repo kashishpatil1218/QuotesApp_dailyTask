@@ -50,7 +50,8 @@ class _HomePageState extends State<HomePage> {
                   : Icon(
                       Icons.list,
                       color: Colors.white,
-                    ))
+                    )),
+          
         ],
       ),
       body: (isGrid) ? GrideviewMethod() : ListviewMethod(),
